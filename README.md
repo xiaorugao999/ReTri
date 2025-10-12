@@ -170,8 +170,8 @@ test_A_dir: 'test_RUN_source'
 test_B_dir: 'test_BMC_target_10'
 
 # Training parameters
-batch_size: 4
-max_iter: 20000
+batch_size: 1
+max_iter: 31000
 pre_train_before_seg: 1000
 validate_iter: 100
 
