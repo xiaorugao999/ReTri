@@ -1,0 +1,204 @@
+# Copyright (C) 2017 NVIDIA Corporation.  All rights reserved.# Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
+patient_slicesA: 2
+patient_slicesB: 2
+random_range: 3
+
+# a:CAMUS-->b:Echo
+# pre_train_before_seg: 17702
+pre_train_before_seg: 10
+# pre_train_before_a_seg: 5000
+# pre_train_before_b_seg: 25000
+resume_munit: False
+resume_dir: ./US_outputs/US_CAMUS2Echo_071355/checkpoints
+resume_iter: 17700
+
+# ## CT-->MR
+# pre_train_before_seg: 19800
+# pre_train_before_a_seg: 5000
+# pre_train_before_b_seg: 25000
+# resume_munit: True
+# resume_dir: ./outputs/cardiac_CTMR_pretrain241459/checkpoints
+# resume_iter: 19800
+
+#todo
+sup_strong_transform: True
+dis_conten_it: 4
+
+model_name: US_CAMUS2Echo_Sup_
+test_model_name: test_US_CAMUS2Echo_Sup_
+
+update_withgen: True
+direction: A2B
+image_save_iter: 300 # How often do you want to save output images during training
+validate_iter: 200
+display_size: 16 # How many images do you want to display each time
+snapshot_save_iter: 300 # How often do you want to save trained models
+log_iter: 50 # How often do you want to log the training stats
+##phase loss
+softphase_w: 0
+logamp_w: 0
+## difference appearance code loss with gaussian
+gaussian_diffappear_w: 0
+gaussian_crossmodal_w: 0
+phase_ba_w: 0
+# optimization options
+max_iter: 300000 # maximum number of training iterations
+batch_size: 1 # batch size
+weight_decay: 0.0001 # weight decay
+beta1: 0.5 # Adam parameter
+beta2: 0.999 # Adam parameter
+init: kaiming # initialization [gaussian/kaiming/xavier/orthogonal]
+lr: 1.0e-4 # initial learning rate
+lr_seg: 5.0e-4 # initial learning rate
+lr_policy: step # learning rate scheduler
+step_size: 10000 # how often to decay learning rate
+step_size_seg: 10000 # how often to decay learning rate
+gamma: 0.5 # how much to decay learning rate
+gan_w: 1 # weight of adversarial loss
+recon_x_w: 10 # weight of image reconstruction loss
+recon_s_w: 1 # weight of style reconstruction loss
+recon_c_w: 1 # weight of content reconstruction loss
+recon_x_cyc_w: 10 # weight of explicit style augmented cycle consistency loss
+vgg_w: 1 # weight of domain-invariant perceptual loss
+attn_consis_weight: 1
+# model options
+gen:
+  dim: 64 # number of filters in the bottommost layer
+  mlp_dim: 256 # number of filters in MLP
+  # dim: 128                     # number of filters in the bottommost layerx_scale
+  # mlp_dim: 512                # number of filters in MLP
+  style_dim: 8 # length of style code
+  activ: relu # activation function [relu/lrelu/prelu/selu/tanh]
+  n_downsample: 2 # number of downsampling layers in content encoder
+  n_res: 4 # number of residual blocks in content encoder/decoder
+  pad_type: reflect # padding type [zero/reflect]
+dis:
+  dim: 64 # number of filters in the bottommost layer
+  norm: none # normalization layer [none/bn/in/ln]
+  activ: lrelu # activation function [relu/lrelu/prelu/selu/tanh]
+  n_layer: 4 # number of layers in D
+  gan_type: lsgan # GAN loss [lsgan/nsgan]
+  num_scales: 3 # number of scales
+  pad_type: reflect # padding type [zero/reflect]
+seg:
+  # segmentor: student_teacher
+  # segmentor: ResidualUNet2D
+  segmentor: ResUNet2D_Featurelevel_cutmix
+  in_channels: 3
+  n_classes: 2
+  loss1: CrossEntropyLoss
+  loss2: DiceLoss
+  ignore_index: 255
+  seg_w: 1
+  volume_slices: 45
+mean_teacher:
+  feature_cutmix: True
+  tea_fea_norm: True
+  feature_cutmix_layers: bottle
+  tea_perturb_mean: False
+  cons_weight_multi_feacut: 1.0
+  cons_weight_multi_transcut: 1.0
+  cons_weight_feacut: 1.0
+  cons_weight: 1.0
+  cons_weight_ab: 1.0
+  cons_weight_b1b2: 5.0
+  cons_weight_b2: 2.0
+  cons_weight_b1: 2.0
+  sup_weight: 1.0
+  cross_cutmix: True
+  self_cutout: False
+  mean_teacher_arch: densenet161unet_imagenet
+  teacher_alpha: 0.99
+  opt_type: adam
+  sgd_momentum: 0.9
+  sgd_nesterov: False
+  sgd_weight_decay: 5.0e-4
+  freeze_bn: False
+  self_cutmix: True
+  conf_thresh: 0.97
+  conf_per_pixel: True
+  rampup: -1
+  ramp_val: 1
+  cons_loss_fn: var
+  fea_cons_loss_fn: cosine
+  self_quadtree: False
+
+cutmix:
+  mask_prop_range_min: 0.2
+  mask_prop_range_max: 0.6
+  cutout_prop_range_min: 0.1
+  cutout_prop_range_max: 0.2
+  boxmask_n_boxes: 1
+  boxmask_fixed_aspect_ratio: False
+  boxmask_by_size: False
+  boxmask_outside_bounds: False
+  boxmask_no_invert: True
+
+strong_aug_para:
+  random_flip: True
+  color_jitter: True
+  gaussian_blur: True
+  quad_ratio1: 0.05
+  quad_ratio2: 0.1
+  sup_quadtree: False
+  cutmix_quadtree: False
+  quad_feature_align: False
+
+augmentation:
+  crop_size: 224
+  aug_scale_hung: False
+  aug_scale_non_uniform: False
+  aug_max_scale: 1.1
+  aug_rot_mag: 0
+  aug_hflip: True
+  aug_vflip: False
+  aug_hvflip: False
+  aug_strong_colour: True
+  aug_colour_brightness: 0.4
+  aug_colour_contrast: 0.4
+  aug_colour_saturation: 0.4
+  aug_colour_hue: 0.1
+  aug_colour_prob: 0.8
+  aug_colour_greyscale_prob: 0.2
+
+
+# data options
+input_dim_a: 3 # number of image channels [1/3]
+input_dim_b: 3 # number of image channels [1/3]
+num_workers: 8 # number of data loading threads
+new_size: 256 # first resize the shortest image side to this size
+rand_crop_image_height: 160 # random crop image of this height
+rand_crop_image_width: 160 # random crop image of this width
+center_crop_image_height: 224 # center crop image of this height
+center_crop_image_width: 192 # center crop image of this width
+resize: False
+centercrop: False
+randomcrop: False
+normalize: True
+mean: 0.5
+std: 0.5
+flip: False
+pretrain_model: ./pretrained_model/DeepLab_resnet_pretrained_imagenet.pth
+#todo
+
+## CAMUS2Echo
+train_patient_num_A: 500
+train_patient_num_B: 1000
+test_patient_num_B: 1267
+train_patient_num_B_sup: 1000
+target: B
+
+
+# # A: CAMUS (2CH + 4CH) --> B:Echo (4CH)
+# data_root: datasets/US_CAMUS2Echo
+# train_A_dir: CAMUS_sampling_padding/train_CAMUS_source_500
+# train_B_dir: train_Echo_target_1000
+# test_A_dir: CAMUS_sampling_padding/train_CAMUS_source_500
+# test_B_dir: test_Echo_target_1267
+
+# A: CAMUS (2CH + 4CH) --> B:Echo (4CH)
+data_root: datasets/US_CAMUS2Echo
+train_A_dir: CAMUS_sampling_intelligent_crop/train_CAMUS_source_500
+train_B_dir: train_Echo_target_1000
+test_A_dir: CAMUS_sampling_intelligent_crop/train_CAMUS_source_500
+test_B_dir: test_Echo_target_1267
