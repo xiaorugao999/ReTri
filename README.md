@@ -161,14 +161,14 @@ seg:
 python train_Prostate_RUN2BMC_Ours.py \
     --config configs/config_Prostate1_RUN2BMC_Ours.yaml \
     --output_path ./outputs \
-    --trainer trainer_ReTri \
+    --trainer MUNIT \
     --save_name Prostate_RUN2BMC_ReTri
 
 # Resume training
 python train_Prostate_RUN2BMC_Ours.py \
     --config configs/config_Prostate1_RUN2BMC_Ours.yaml \
     --output_path ./outputs \
-    --trainer trainer_ReTri \
+    --trainer MUNIT \
     --save_name Prostate_RUN2BMC_ReTri \
     --resume_munit True \
     --resume_dir ./checkpoints
@@ -183,7 +183,7 @@ python train_Prostate_RUN2BMC_Ours.py \
 python test_Prostate_RUN2BMC_Ours.py \
     --config configs/config_Prostate1_RUN2BMC_Ours.yaml \
     --output_path ./outputs \
-    --trainer trainer_ReTri \
+    --trainer MUNIT \
     --save_name Prostate_RUN2BMC_ReTri \
     --resume_dir ./checkpoints \
     --test_model_name test_Prostate_RUN2BMC_ReTri
