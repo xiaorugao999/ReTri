@@ -21,7 +21,7 @@
 - [License](#license)
 - [Contact](#contact)
 
-## 🔍 Framework Overview
+## Framework Overview
 
 
 <div align="center">
