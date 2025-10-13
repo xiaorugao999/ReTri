@@ -140,7 +140,7 @@ Modify the configuration file `configs/config_Prostate1_RUN2BMC_Ours.yaml`:
 data_root: './datasets/Prostate_RUN2BMC'
 train_A_dir: 'train_RUN_source_30'
 train_B_dir: 'train_BMC_target_20'
-test_A_dir: 'test_RUN_source'
+test_A_dir: 'test_RUN_source_30'
 test_B_dir: 'test_BMC_target_10'
 
 # Training parameters
