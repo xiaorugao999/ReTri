@@ -75,12 +75,12 @@ ReTri comprises two synergistic modules that progressively bridge domain gaps:
 ### Training Strategy
 
 ```
-Phase 1: Pre-training (1000 iterations)
+Phase 1: Warm up
 ├── RDIA module training
 ├── Visual disparity alignment
 └── Initial domain bridge establishment
 
-Phase 2: Segmentation Training
+Phase 2: Joint Training
 ├── Joint RDIA + TCFA training
 ├── Attention-guided semantic alignment
 ├── Multi-view dual-level mixing consistency alignment
