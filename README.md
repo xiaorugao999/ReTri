@@ -10,7 +10,6 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
 - [Framework Overview](#framework-overview)
 - [Methodology](#methodology)
 - [Installation](#installation)
