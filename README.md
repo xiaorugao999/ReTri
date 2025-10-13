@@ -264,14 +264,6 @@ For questions, suggestions, or collaboration opportunities, please contact:
 
 We welcome contributions and feedback from the community!
 
-## 🔄 Updates
-
-### Version History
-
-- **v1.0.0** (Current): Initial release with ReTri implementation
-  - Complete training and testing pipeline
-  - Comprehensive evaluation metrics
-  - SwanLab integration for experiment tracking
 
 ### Planned Updates
 
