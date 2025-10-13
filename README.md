@@ -39,7 +39,7 @@ ReTri synergistically integrates two modules:
 
 <div align="center">
   <img src="Fig_2.png" alt="ReTri Framework Architecture" width="100%"/>
-  <p><strong>Figure 1:</strong> Overall architecture of ReTri framework. The framework consists of two main modules: (1) Representation Disentanglement-based Image Alignment (RDIA) for initial visual disparity alignment, and (2) Triple-level Consistency-driven Feature Alignment (TCFA) for systematic semantic discrepancy minimization.</p>
+  <p><strong>Figure 1:</strong> Overall architecture of ReTri framework. The framework consists of two main modules: (1) Representation Disentanglement-based Image Alignment (RDIA) for initial visual disparity alignment, and (2) Triple-level Consistency-driven Feature Alignment (TCFA) for systematic domain discrepancy minimization.</p>
 </div>
 
 
@@ -83,7 +83,7 @@ Phase 1: Pre-training (1000 iterations)
 Phase 2: Segmentation Training
 ├── Joint RDIA + TCFA training
 ├── Attention-guided semantic alignment
-├── Multi-view dual-level mixing consistency
+├── Multi-view dual-level mixing consistency alignment
 └── Progressive domain bridging
 ```
 
@@ -98,30 +98,20 @@ Phase 2: Segmentation Training
 ### Dependencies
 
 ```bash
-# Core dependencies
 pip install torch torchvision torchaudio
 pip install numpy scipy matplotlib
 pip install opencv-python pillow
 pip install scikit-learn scikit-image
-
-# Medical imaging
 pip install medpy nibabel
-
-# Deep learning utilities
-pip install tensorboard tensorboardX
 pip install kornia
-
-# Experiment tracking
 pip install swanlab
-
-# Data processing
 pip install pyyaml tqdm
 ```
 
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/ReTri.git
+git clone https://github.com/xiaorugao999/ReTri
 cd ReTri
 ```
 
@@ -148,12 +138,13 @@ datasets/Prostate_RUN2BMC/
 ├── test_BMC_target_10/           # Target domain test data
 └── test_external_*/              # External validation data
 ```
+**🔗 Baidu Cloud Download Link**: [Download Datasets](https://pan.baidu.com/s/12P7Yyk6ymW438BJvFhEEJQ?pwd=7vxf)
 
 ### Data Format
 
 - **Images**: PNG format, grayscale or RGB
 - **Masks**: PNG format with segmentation labels
-- **Naming Convention**: `{CaseID}_slice{XX}_all14.png` and `{CaseID}_slice{XX}_all14_segmentation.png`
+- **Naming Convention**: `{CaseID}_slice{XX}_all{XX}.png` and `{CaseID}_slice{XX}_all{XX}_segmentation.png`
 
 ## 🏋️ Training
 
@@ -221,7 +212,6 @@ python test_Prostate_RUN2BMC_Ours.py \
 
 - **Dice Coefficient**: 3D volume-based evaluation
 - **Average Symmetric Surface Distance (ASSD)**: Surface distance metric
-- **Patient-wise Analysis**: Per-patient performance breakdown
 
 ## 📊 Results
 
@@ -269,7 +259,7 @@ See the [LICENSE](LICENSE) file for details.
 For questions, suggestions, or collaboration opportunities, please contact:
 
 - **Email**: xiaoru.gao@sjtu.edu.cn
-- **GitHub Issues**: [Create an issue](https://github.com/yourusername/ReTri/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/xiaorugao999/ReTri/issues)
 - **Research Group**: https://citi-imr.sjtu.edu.cn
 
 We welcome contributions and feedback from the community!
