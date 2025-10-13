@@ -20,7 +20,6 @@
 - [Citation](#citation)
 - [License](#license)
 - [Contact](#contact)
-- [Updates](#updates)
 
 ## 🔍 Framework Overview
 
@@ -245,12 +244,6 @@ For questions, suggestions, or collaboration opportunities, please contact:
 - **Research Group**: https://citi-imr.sjtu.edu.cn
 
 We welcome contributions and feedback from the community!
-
-
-### Planned Updates
-
-- 🔮 **Extended Dataset Support**: Implementation for Lumbar Spine CT-MR, Cardiac CT-MR, and Cross-domain Echocardiography datasets
-- 🔮 **Pre-trained Models**: Release of pre-trained weights for all seven UDA scenarios
 
 
 **⚠️ Important Notes:**
