@@ -229,13 +229,13 @@ We appreciate your interest in our work! If you use this code in your research, 
 **Hope we can get published!** 🎉
 
 
-## 📄 License
+## License
 
 This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
 
 See the [LICENSE](LICENSE) file for details.
 
-## 📞 Contact
+## Contact
 
 For questions, suggestions, or collaboration opportunities, please contact:
 
