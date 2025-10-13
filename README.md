@@ -23,31 +23,14 @@
 - [Contact](#contact)
 - [Updates](#updates)
 
-## 🔍 Overview
+## 🔍 Framework Overview
 
-ReTri is a novel end-to-end progressive domain bridging framework designed specifically for unsupervised domain adaptation (UDA) in medical image segmentation. The method addresses three critical challenges in UDA-based segmentation:
-
-1. **Model Bias Problem**: The inherent domain gap between synthetic and real target images persists, causing segmentation models to exhibit bias towards synthetic data
-2. **Suboptimal Knowledge Transfer**: Direct knowledge transfer between synthetic and real target domains remains challenging due to substantial distribution shifts
-3. **Intra-domain Variation Overlook**: Most existing methods focus on inter-domain alignment while overlooking rich intra-domain variations within the target domain
-
-ReTri synergistically integrates two modules:
-- **Representation Disentanglement-based Image Alignment (RDIA)**: Establishes an initial domain bridge by decoupling and aligning fundamental visual disparities
-- **Triple-level Consistency-driven Feature Alignment (TCFA)**: Hierarchically bridges remaining cross-domain discrepancies through novel consistency-driven alignment mechanisms
-
-### 🏗️ Framework Overview
 
 <div align="center">
   <img src="Fig_2.png" alt="ReTri Framework Architecture" width="100%"/>
   <p><strong>Figure 1:</strong> Overall architecture of ReTri framework. The framework consists of two main modules: (1) Representation Disentanglement-based Image Alignment (RDIA) for initial visual disparity alignment, and (2) Triple-level Consistency-driven Feature Alignment (TCFA) for systematic domain discrepancy minimization.</p>
 </div>
 
-
-## ✨ Key Features
-
-- 🎯**TCFA**: Our method introduces two novel mechanisms that operate across three levels (semantics, feature, and prediction) and two views (intra-view/intra-domain and interview/inter-domain) to address distinct challenges that we have summarized in the research gap paragraph. The attention-guided semantic-level consistency alignment mechanism aims to alleviating the model bias problem at the semantic level while the multi-view dual-level mixing consistency alignment mechanism aims to minimize both inter- and intra-domain shift by constructing intermediate domain bridges at both the feature and prediction levels. 
-- 📊 **Comprehensive Evaluation**: Tested on four challenging medical datasets across seven UDA scenarios
-- 📈 **Superior Performance**: Consistent improvements over state-of-the-art methods across all evaluated scenarios
 
 ## 🧠 Methodology
 
@@ -62,14 +45,14 @@ ReTri comprises two synergistic modules that progressively bridge domain gaps:
 
 2. **Triple-level Consistency-driven Feature Alignment (TCFA) Module**
    - Systematically minimizes remaining semantic and distributional discrepancies
-   - Features two novel alignment mechanisms:
+   - ✨ Features two novel alignment mechanisms:
      - **Attention-guided Semantics-level Consistency Alignment**
        - Bi-attentive Semantic Feature Extraction (BSFE) component
        - Attention-adaptive Semantic Consistency (ASC) loss function
        - Dynamic alignment of high-level semantic representations
      - **Multi-view Dual-level Mixing Consistency Alignment**
-       - Feature-Cut consistent self-ensembling (FCCS) component
-       - Trans-Cut consistent self-ensembling (TCCS) component
+       - Feature-Cut Consistent Self-ensembling (FCCS) component
+       - Trans-Cut Consistent Self-ensembling (TCCS) component
        - Complementary feature- and prediction-level consistency regularization
 
 ### Training Strategy
