@@ -30,7 +30,7 @@
 </div>
 
 
-## 🧠 Methodology
+## Methodology
 
 ### Architecture Overview
 
@@ -68,7 +68,7 @@ Phase 2: Joint Training
 └── Progressive domain bridging
 ```
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ git clone https://github.com/xiaorugao999/ReTri
 cd ReTri
 ```
 
-## 📁 Dataset Preparation
+## Dataset Preparation
 
 ### Dataset Structure
 
@@ -127,7 +127,7 @@ datasets/Prostate_RUN2BMC/
 - **Masks**: PNG format with segmentation labels
 - **Naming Convention**: `{CaseID}_slice{XX}_all{XX}.png` and `{CaseID}_slice{XX}_all{XX}_segmentation.png`
 
-## 🏋️ Training
+## Training
 
 ### Configuration
 
@@ -174,7 +174,7 @@ python train_Prostate_RUN2BMC_Ours.py \
     --resume_dir ./checkpoints
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Model Evaluation
 
@@ -194,7 +194,7 @@ python test_Prostate_RUN2BMC_Ours.py \
 - **Dice Coefficient**: 3D volume-based evaluation
 - **Average Symmetric Surface Distance (ASSD)**: Surface distance metric
 
-## 📊 Results
+## Results
 
 ### Comprehensive Evaluation
 
@@ -218,7 +218,7 @@ ReTri has been extensively evaluated on **four challenging medical datasets** ac
 | Prostate | Multi-center A→B | **+12.2%** | ReTri vs SOTA |
 | Prostate | Multi-center B→A | **+12.0%** | ReTri vs SOTA |
 
-## 📚 Citation
+## Citation
 **Status**: 📝 Under Review
 
 We appreciate your interest in our work! If you use this code in your research, please consider:
