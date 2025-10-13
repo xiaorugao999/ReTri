@@ -11,7 +11,7 @@
 ## 📋 Table of Contents
 
 - [Overview](#overview)
-- [Key Features](#key-features)
+- [Framework Overview](#framework-overview)
 - [Methodology](#methodology)
 - [Installation](#installation)
 - [Dataset Preparation](#dataset-preparation)
