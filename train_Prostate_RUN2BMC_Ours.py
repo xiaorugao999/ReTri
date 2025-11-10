@@ -167,7 +167,6 @@ print('!!! The begin iterations:', iterations)
 
 training_start_time = time.time()
 iteration_times = []
-gpu_memory_usage = []
 
 while True:
     my_sampler = dataset_RUN2BMC.TrainRandomSampler(train_pair_num)
@@ -299,10 +298,12 @@ while True:
             torch.cuda.synchronize()
 
         trainer.update_learning_rate()
+    
 
         if (iterations + 1) % config['snapshot_save_iter'] == 0:
             trainer.save_cp(checkpoint_directory, iterations, config)
 
+                
         iterations += 1
         if iterations >= max_iter:
             sys.exit('Finish training')
