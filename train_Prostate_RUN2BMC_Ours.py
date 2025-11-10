@@ -153,7 +153,6 @@ else:
 
 
 
-gauss_kernel = trainer.get_gaussian_kernel(3).cuda()
 with open('{}/train_glob_data_B.txt'.format(output_directory), 'a') as f:
     f.writelines('patient:{}\n'.format(train_B_path))
 with open('{}/test_glob_data_B.txt'.format(output_directory), 'a') as f:
