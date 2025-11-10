@@ -165,17 +165,6 @@ iterations = trainer.resume(
     resume_dir, hyperparameters=config) if resume_munit else 0
 
 print('!!! The begin iterations:', iterations)
-best_dice_rec = 0
-best_dice_a = 0
-best_dice_rec_std = 0
-best_dice_cyc = 0
-best_dice_stu = 0
-best_dice_ori = 0
-best_dice_mean_tea_aug_v2 = 0
-best_dice_mean_tea_aug_v3 = 0
-best_dice_mean_tea_aug_v4 = 0
-best_dice_mean_tea_aug = 0
-best_dice_color = 0
 
 training_start_time = time.time()
 iteration_times = []
@@ -311,26 +300,10 @@ while True:
             torch.cuda.synchronize()
 
         trainer.update_learning_rate()
-    
-        if (iterations + 1) % config['image_save_iter'] == 0:
-            with torch.no_grad():
-                if (iterations + 1) < config['pre_train_before_seg']:
-                    test_image_outputs = trainer.sample(
-                        train_display_images_a_up, test_display_images_b_up, config)
-                    write_2images(test_image_outputs, display_size, image_directory, 'test_%06d' % (
-                        iterations + 1), 'test_%06d' % (iterations + 1), 'img')
-
-                else:
-                    test_image_outputs = trainer.sample_test_seg(
-                        test_display_images_a_up, test_display_images_b_up, test_display_masks_a_up, test_display_masks_b_up)
-
-                    write_2images_single(test_image_outputs, display_size, image_directory, 'cutmix_test_iter_%06d' % (
-                        iterations + 1), 'img')
 
         if (iterations + 1) % config['snapshot_save_iter'] == 0:
             trainer.save_cp(checkpoint_directory, iterations, config)
 
-                
         iterations += 1
         if iterations >= max_iter:
             sys.exit('Finish training')
