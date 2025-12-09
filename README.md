@@ -17,6 +17,7 @@
 - [Training](#training)
 - [Testing](#testing)
 - [Results](#results)
+- [Acknowledgements](#acknowledgements)
 - [Citation](#citation)
 - [License](#license)
 - [Contact](#contact)
@@ -217,6 +218,18 @@ ReTri has been extensively evaluated on **four challenging medical datasets** ac
 | Echo | EchoNet→CAMUS | **+2.3%** | ReTri vs SOTA |
 | Prostate | Multi-center A→B | **+12.2%** | ReTri vs SOTA |
 | Prostate | Multi-center B→A | **+12.0%** | ReTri vs SOTA |
+
+
+## Acknowledgements
+
+We would like to express our sincere gratitude to the open-source community and the projects that inspired or were referenced in this work, including but not limited to:
+
+- [MUNIT](https://github.com/nvlabs/MUNIT)
+- [DRIT](https://github.com/HsinYingLee/DRIT)
+- [Cutmix](https://github.com/clovaai/CutMix-PyTorch)
+
+We also thank other outstanding open-source projects and contributors for their continuous support to the community.
+
 
 ## Citation
 **Status**: 📝 Under Review
