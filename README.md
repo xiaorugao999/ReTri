@@ -225,7 +225,6 @@ ReTri has been extensively evaluated on **four challenging medical datasets** ac
 We would like to express our sincere gratitude to the open-source community and the projects that inspired or were referenced in this work, including but not limited to:
 
 - [MUNIT](https://github.com/nvlabs/MUNIT)
-- [DRIT](https://github.com/HsinYingLee/DRIT)
 - [Cutmix](https://github.com/clovaai/CutMix-PyTorch)
 
 We also thank other outstanding open-source projects and contributors for their continuous support to the community.
